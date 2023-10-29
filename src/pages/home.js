@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import UploadIcon from '@mui/icons-material/Upload';
 
 function Home() {
   return (
@@ -18,7 +19,7 @@ function Home() {
             <input
               class="opacity-0 cursor-pointer absolute h-full"
               type="file"
-              id="user"
+              id="captureImg"
               capture="user"
               accept="image/*"
             ></input>
@@ -28,16 +29,15 @@ function Home() {
         <div class="w-auto h-5 relative">
           <Button
             variant="contained"
-            startIcon={<AddAPhotoIcon />}
+            startIcon={<UploadIcon />}
             style={{ padding: "20px 40px" }}
           >
-            Camera
+            Upload
             <input
               class="opacity-0 cursor-pointer absolute h-full"
               type="file"
-              id="user"
-              capture="user"
-              accept="image/*"
+              id="uploadImg"
+              accept="image/png, image/jpeg, image/heic"
             ></input>
           </Button>
         </div>
