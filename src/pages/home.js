@@ -9,6 +9,7 @@ import { v4 } from "uuid";
 import Button from "@mui/material/Button";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import UploadIcon from "@mui/icons-material/Upload";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 function Home() {
   const [file, setFile] = useState("");
@@ -83,58 +84,66 @@ function Home() {
   // }, []);
 
   return (
-    <body class="grid justify-items-center w-full bg-red-400">
-      <div class="w-96 bg-blue-400 grid justify-items-center gap-y-32">
-        <h1>Welcome to Med Vision</h1>
-
-        <div class="w-auto h-5 relative">
-          <Button
-            variant="contained"
-            startIcon={<AddAPhotoIcon />}
-            style={{ padding: "20px 40px" }}
-          >
-            Camera
-            <input
-              class="opacity-0 cursor-pointer absolute h-full"
-              type="file"
-              id="captureImg"
-              capture="user"
-              accept="image/*"
-              onChange={handleChange}
-              // onChange={(event) => {
-              //   handleChange();
-              //   uploadFile();
-              //   objectName = event.target.files[0].name;
-              //   console.log(event.target.files[0].name);
-              // }}
-            ></input>
-          </Button>
+    <body class="grid justify-items-center w-full bg-primaryGreen">
+      <div style={{maxWidth: '500px'}} class="w-screen h-screen gap-y-16 px-10 py-20 bg-primaryBlue grid justify-items-center gap-y-2">
+        
+        <div class="flex flex-row w-full items-center justify-between">
+          <img class="w-3/12" src="/images/medVisionLogo.svg"></img>
+          <div>
+            <p class="text-2xl">Welcome to <span class="text-4xl">MedVision</span></p>
+            <p class="text-2xl">Your Medical Assistant</p>
+          </div>
         </div>
 
-        <div class="w-auto h-5 relative">
-          <Button
-            variant="contained"
-            startIcon={<UploadIcon />}
-            style={{ padding: "20px 40px" }}
-          >
-            Upload
-            <input
-              class="opacity-0 cursor-pointer absolute h-full"
-              type="file"
-              id="uploadImg"
-              accept="image/png, image/jpeg, image/heic"
-              onChange={handleChange}
-              // onChange={(event) => {
-              //   handleChange();
-              //   uploadFile();
-              //   objectName = event.target.files[0].name;
-              //   console.log(event.target.files[0].name);
-              // }}
-            ></input>
-          </Button>
-
+        <div class="w-full p-6 pb-1 text-primaryGreen border-2 rounded-md">
+          <div class="flex justify-between py-4 text-3xl">
+            <p>Instructions</p>
+            <VolumeUpIcon/>
+          </div>
+          <div class="pt-2 border-t-2 border-primaryGreen "> 
+            <p>Step 1: Choose Camera or Upload from Gallery</p>
+            <p>Step 2: Take or Upload the picture</p>
+            <p>Step 3: Get the information of your medicine that you provided.</p>
+          </div>
         </div>
+
+        <div class="pt-5 w=96 bg-primaryBlue grid justify-items-center gap-y-16">
+          <div class="w-auto h-5 relative">
+            <Button
+              variant="contained"
+              startIcon={<AddAPhotoIcon />}
+              style={{ padding: "20px 40px" }}
+            >
+              Camera
+              <input
+                class="opacity-0 cursor-pointer absolute h-full"
+                type="file"
+                id="captureImg"
+                capture="user"
+                accept="image/*"
+                onChange={handleChange}
+              ></input>
+            </Button>
+          </div>
+
+          <div class="w-auto h-5 relative">
+            <Button
+              variant="contained"
+              startIcon={<UploadIcon />}
+              style={{ padding: "20px 40px" }}
+            >
+              Upload
+              <input
+                class="opacity-0 cursor-pointer absolute h-full"
+                type="file"
+                id="uploadImg"
+                accept="image/png, image/jpeg, image/heic"
+                onChange={handleChange}
+              ></input>
+            </Button>
+          </div>
           <Button variant="contained" onClick={handleUpload}>Upload to Firebase</Button>
+        </div>
       </div>
     </body>
   );
