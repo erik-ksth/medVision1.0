@@ -1,10 +1,10 @@
 import { React, useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import {
   ref,
   uploadBytesResumable,
   getDownloadURL,
-  listAll,
 } from "firebase/storage";
 import { storage } from "../firebase";
 // import { storage } from "./firebaseConfig";
@@ -16,7 +16,6 @@ import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
 function Home() {
   const [file, setFile] = useState("");
-  const [isInputDisabled, setInputDisabled] = useState(true);
   const [isDisabled, setDisabled] = useState(true);
   let objectName = " ";
 
@@ -56,12 +55,13 @@ function Home() {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           console.log(url);
-          axios.post("api/process-image", {
-            objectName: objectName,
-          });
+          // axios.post("api/process-image", {
+          //   objectName: objectName,
+          // });
         });
       }
     );
+    
   };
 
   // const [imageUpload, setImageUpload] = useState(null);
@@ -95,7 +95,7 @@ function Home() {
   // }, []);
 
   return (
-    <body class="grid justify-items-center w-full bg-primaryGreen">
+    <body class="grid justify-items-center w-full h-screen bg-primaryGreen">
       <div
         style={{ maxWidth: "500px" }}
         class="w-screen h-screen gap-y-16 px-10 py-20 bg-primaryBlue grid justify-items-center gap-y-2"
@@ -129,7 +129,7 @@ function Home() {
             <Button
               variant="contained"
               startIcon={<AddAPhotoIcon />}
-              style={{ padding: "20px 40px" }}
+              style={{ padding: "20px 40px", backgroundColor: '#006D77' }}
             >
               Camera
               <input
@@ -147,7 +147,7 @@ function Home() {
             <Button
               variant="contained"
               startIcon={<UploadIcon />}
-              style={{ padding: "20px 40px" }}
+              style={{ padding: "20px 40px", backgroundColor: '#006D77' }}
             >
               Upload
               <input
@@ -166,6 +166,8 @@ function Home() {
             variant="contained"
             disabled={isDisabled}
             onClick={handleUpload}
+            component={Link}
+            to={"/info"}
           >
             Submit
           </Button>
