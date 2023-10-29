@@ -52,8 +52,8 @@ function Home() {
               accept="image/*"
               onChange={(event) => {
                 setImageUpload(event.target.files[0]);
+                uploadFile();
               }}
-              onClick={uploadFile}
             ></input>
           </Button>
         </div>
