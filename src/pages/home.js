@@ -164,7 +164,7 @@ function Home() {
             style={{ padding: "20px 40px" }}
             id="submitBtn"
             variant="contained"
-            disabled="true"
+            disabled={isDisabled}
           >
             Submit
           </Button>
