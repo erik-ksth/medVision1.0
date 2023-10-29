@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Info() {
      const [play] = useSound(voice);
-     // play();
+     play();
   return (
     <body class="grid justify-items-center w-full h-screen bg-primaryGreen">
       <div
