@@ -165,6 +165,7 @@ function Home() {
             id="submitBtn"
             variant="contained"
             disabled={isDisabled}
+            onClick={handleUpload}
           >
             Submit
           </Button>
